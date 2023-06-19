@@ -1,0 +1,26 @@
+_BASE_: "../Base-RCNN-VGG.yaml"
+#_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  #WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  WEIGHTS: "/home/detectron2/pretrained_models/vgg16.pkl"
+  PIXEL_STD: [57.375, 57.120, 58.395]
+  MASK_ON: False
+  ROI_HEADS:
+    NUM_CLASSES: 1
+INPUT:
+  MIN_SIZE_TRAIN: (600, )
+  MIN_SIZE_TEST: 600
+DATASETS:
+  TRAIN: ('cityscape_car_2007_train_s',)
+  TEST: ('bdd100k_daytime_test',)
+  #TEST: ('cityscape_car_2007_test_s',)
+SOLVER:
+  # STEPS: (2000, 2800)
+  BASE_LR: 0.001
+  MAX_ITER: 3720  # 2975images to train, bs=16, so we got 20 epochs
+  LR_SCHEDULER_NAME: WarmupCosineLR
+  IMS_PER_BATCH: 16
+  # WARMUP_ITERS: 100
+
+
+

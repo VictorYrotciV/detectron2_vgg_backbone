@@ -1,0 +1,25 @@
+_BASE_: "../Base-RCNN-VGG.yaml"
+MODEL:
+  # WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  WEIGHTS: "/home/detectron2/pretrained_models/vgg16.pkl"
+  PIXEL_STD: [57.375, 57.120, 58.395]
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NUM_CLASSES: 1
+INPUT:
+  MIN_SIZE_TRAIN: (600,)
+  MIN_SIZE_TEST: 600
+DATASETS:
+  TRAIN: ('kitti_trainval',)
+  TEST: ('bdd100k_daytime_test',)
+SOLVER:
+  STEPS: (4000, 6000)
+  BASE_LR: 0.001
+  MAX_ITER: 8355  # 6684images to train, so we got 20 epochs
+  LR_SCHEDULER_NAME: WarmupCosineLR
+  IMS_PER_BATCH: 16
+  WARMUP_ITERS: 100
+
+
