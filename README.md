@@ -10,8 +10,10 @@ After removing maxpool layer at the bottom of vgg backbone, there are 3 main mod
 * Add gradient clipping layers following various other implementations, such as [detectron](https://github.com/facebookresearch/Detectron) and [faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch).
 * **Add box_head layers of 2 fc layers following several implementations such as [faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch)**, which is the key to a normal performance. Specifically, I used the second (4096, 4096) and third (512x7x7, 4096) fc layers bottom up of the classifier layers of vgg from torchvision.models, following [faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch), [DA_detection](https://github.com/VisionLearningGroup/DA_Detection), etc. I also modified code from [@Shuntw6096](https://github.com/Shuntw6096) to convert the classifier params of vgg to box_head params.
 
-**After the modification, the results should match most experiment results from previous papers using vgg backboned faster rcnn, such as [Multi-Source Domain Adaptation for Object Detection](https://arxiv.org/pdf/2106.15793.pdf) and [Strong-Weak Distribution Alignment for Adaptive Object Detection](https://arxiv.org/pdf/1812.04798.pdf). 
-By the way, I've tested using StandardROIHeads. As [@ashnair1](https://github.com/ashnair1) in [Add VGG backbones by ashnair1](https://github.com/facebookresearch/detectron2/pull/1584) pointed out and the performance is indeed very poor.**
+**After the modification, the results should match most experiment results from previous papers using vgg backboned faster rcnn, such as [Multi-Source Domain Adaptation for Object Detection](https://arxiv.org/pdf/2106.15793.pdf) and [Strong-Weak Distribution Alignment for Adaptive Object Detection](https://arxiv.org/pdf/1812.04798.pdf). **
+
+
+By the way, I've tested using StandardROIHeads. As [@ashnair1](https://github.com/ashnair1) in [Add VGG backbones by ashnair1](https://github.com/facebookresearch/detectron2/pull/1584) pointed out, the performance is indeed very poor.
 
 
 
