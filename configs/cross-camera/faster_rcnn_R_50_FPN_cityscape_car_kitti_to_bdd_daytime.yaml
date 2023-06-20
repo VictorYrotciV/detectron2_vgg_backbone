@@ -11,13 +11,13 @@ INPUT:
   MIN_SIZE_TRAIN: (600, )
   MIN_SIZE_TEST: 600
 DATASETS:
-  TRAIN: ('cityscape_car_2007_train_s',)
+  TRAIN: ('cityscape_car_2007_train_s','kitti_trainval')
   TEST: ('bdd100k_daytime_test',)
   #TEST: ('cityscape_car_2007_test_s',)
 SOLVER:
   # STEPS: (2000, 2800)
   BASE_LR: 0.001
-  MAX_ITER: 3720  # 2975images to train, bs=16, so we got 20 epochs
+  MAX_ITER: 12075  # 2975+6684images to train, bs=16, so we got 20 epochs
   LR_SCHEDULER_NAME: WarmupCosineLR
   IMS_PER_BATCH: 16
   # WARMUP_ITERS: 100

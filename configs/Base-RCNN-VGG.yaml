@@ -15,7 +15,7 @@ MODEL:
     #NAME: "StandardROIHeads"
     IN_FEATURES: ['vgg_block5']
   ROI_BOX_HEAD:
-    NAME: "FastRCNNConvFCHead"
+    NAME: "FastRCNNVGG16ConvFCHead"
     NUM_FC: 2
     POOLER_RESOLUTION: 7
   # ROI_MASK_HEAD:

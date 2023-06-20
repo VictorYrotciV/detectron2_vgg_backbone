@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-from .box_head import ROI_BOX_HEAD_REGISTRY, build_box_head, FastRCNNConvFCHead
+from .box_head import ROI_BOX_HEAD_REGISTRY, build_box_head, FastRCNNConvFCHead, FastRCNNVGG16ConvFCHead
 from .keypoint_head import (
     ROI_KEYPOINT_HEAD_REGISTRY,
     build_keypoint_head,

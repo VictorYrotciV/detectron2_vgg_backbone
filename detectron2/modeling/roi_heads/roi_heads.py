@@ -559,6 +559,7 @@ class VggROIHeads(ROIHeads):
         self.box_head = build_box_head(
             cfg, ShapeSpec(channels=in_channels, height=pooler_resolution, width=pooler_resolution)
         )
+        
         self.box_predictor = FastRCNNOutputLayers(cfg, self.box_head.output_shape)
         #-------------------------------------------------------
         if self.mask_on:
